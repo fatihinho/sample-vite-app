@@ -19,7 +19,7 @@ import ListItemText from '@mui/material/ListItemText';
 import {Dashboard, Logout, Settings} from "@mui/icons-material";
 import {Outlet, useNavigate} from "react-router";
 
-import './menu-app-bar.css';
+import './root.css';
 
 const drawerWidth = 240;
 
@@ -92,7 +92,7 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== 'open'})
   }),
 );
 
-export default function MenuAppBar() {
+export default function Root() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -116,7 +116,8 @@ export default function MenuAppBar() {
   }
 
   function handleLogout() {
-    window.alert('Logged Out!')
+    sessionStorage.removeItem("isLoggedIn");
+    navigate("/login");
   }
 
   return (

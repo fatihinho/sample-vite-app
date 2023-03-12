@@ -1,13 +1,17 @@
 import React from 'react';
-import MenuAppBar from "./components/MenuAppBar/menu-app-bar";
+import Login from "./pages/Login/login";
+import Root from "./pages/Root/root";
 
-function App() {
+export default function App() {
+  let isLoggedIn = false;
+
+  if (sessionStorage.getItem("isLoggedIn")! === "true") {
+    isLoggedIn = true;
+  }
 
   return (
     <div>
-      <MenuAppBar />
+      {isLoggedIn ? <Root/> : <Login/>}
     </div>
   );
 }
-
-export default App;
