@@ -16,10 +16,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import {Dashboard, Logout, Settings} from "@mui/icons-material";
+import {Dashboard, Label, Logout, Settings} from "@mui/icons-material";
 import {Outlet, useNavigate} from "react-router";
 
 import './root.css';
+import {Avatar} from "primereact/avatar";
 
 const drawerWidth = 240;
 
@@ -142,7 +143,11 @@ export default function Root() {
               Sample Vite App
             </Typography>
           </div>
-          <Logout onClick={handleLogout}/>
+          <div>
+            <Avatar label="U" size="normal" style={{ backgroundColor: '#ffffff', color: '#000000', marginRight: '8px' }} shape="circle" />
+            <label style={{color: 'white', fontSize: '16px', marginRight: '16px'}}>Hello, user</label>
+            <Logout onClick={handleLogout}/>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}
